@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Create a report to help us improve
+about: Report an issue with Pocket Congress
 title: "[BUG]"
 labels: bug
 assignees: Sid-MB
