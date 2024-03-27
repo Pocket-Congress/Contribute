@@ -15,6 +15,9 @@
 
 All contributions are licensed under the [repository license](https://github.com/Pocket-Congress/Contribute/blob/main/LICENSE).
 
+## Structure
+The typical structure of a contribution would be a Swift Package developed in a subfolder of this repository.
+
 ## Contact
 Get in touch with us at hello@pocketcongress.org.
 
