@@ -17,3 +17,6 @@ All contributions are licensed under the [repository license](https://github.com
 
 ## Contact
 Get in touch with us at hello@pocketcongress.org.
+
+### Vulnerability Disclosure
+Read our [Vulnerability Disclosure Policy](https://github.com/Pocket-Congress/Contribute/security) or email us via responsible-disclosure@pocketcongress.org for more information. Do not disclose vulnerabilities through GitHub Issues or other public means.
