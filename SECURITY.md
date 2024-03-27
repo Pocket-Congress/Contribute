@@ -11,7 +11,7 @@ There are a few options to safely report a vulnerability:
 - **Report through GitHub:** Create an advisory through the ["Security" tab](https://github.com/Pocket-Congress/Contribute/security) of the Pocket-Congress/Contribute GitHub repo. Please include a reply email for follow-up.
 - **Report by Email:** Send an email to responsible-disclosure@pocketcongress.org. We do not support PGP-encrypted email.
 
-In both cases, please include all relevant information including code, screenshots, and reproduction steps, as appropriate. Do not include any private information or Personal Identifiable Information (PII) that does not belong to you.
+In both cases, please include all relevant information including code, screenshots, and reproduction steps, as appropriate.
 
 If you feel these methods are not secure enough, reach out to siddharth@pocketcongress.org and we will work with you to set up an alternate line of communication.
 
