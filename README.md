@@ -2,7 +2,7 @@
 
 <a href="https://apps.apple.com/us/app/pocket-congress/id6444019265?itsct=apps_box_badge&amp;itscg=30200&ct=github" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1666742400" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
 
-**Pocket Congress welcomes (and loves) open-source contributions.** 
+**Pocket Congress welcomes (and loves) open-source contributions.** Contributions to Pocket Congress can earn academic credit, be added to your resumé, and help make federal politics transparent.
 
 > [!NOTE]
 > If you are **not** a developer and/or don't have a GitHub account, submit ideas through this [Google Form](https://go.pocketcongress.org/ideas).
