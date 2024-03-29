@@ -15,11 +15,19 @@
 
 All contributions are licensed under the [repository license](https://github.com/Pocket-Congress/Contribute/blob/main/LICENSE).
 
+## I want to help
+Send us an email at siddharth@pocketcongress.org and we'll get you up and running!
+
+If you are a student and your school has an academic credit program program, we can work with you and your institution to give you recognition for your work.
+
 ### Contribution Structure
-The typical structure of a contribution would be a Swift Package developed in a subfolder of this repository.
+There's a lot of flexibility with how a contribution may look. The typical structure would be a Swift Package developed in a subfolder of this repository.
 
 ## Contact
 Get in touch with us at hello@pocketcongress.org.
 
 ### Vulnerability Disclosure
 Read our [Vulnerability Disclosure Policy](https://github.com/Pocket-Congress/Contribute/security) or email us via responsible-disclosure@pocketcongress.org for more information. Do not disclose vulnerabilities through GitHub Issues or other public means.
+
+## Donations
+Reach out to siddharth@pocketcongress.org if you wish to make a donation.
