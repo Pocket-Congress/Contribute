@@ -9,7 +9,7 @@
 
 
 ## I have a feature idea
-[Create a new issue](./issues/new/choose). Within the issue form, you'll be able to describe what new features you want to see in Pocket Congress.
+[Create a new issue](https://github.com/Pocket-Congress/Contribute/issues/new/choose). Within the issue form, you'll be able to describe what new features you want to see in Pocket Congress.
 
 **If you want to code a new feature, please open an issue *before* you start developing!** We can work through how to best add and integrate your feature into Pocket Congress.
 
