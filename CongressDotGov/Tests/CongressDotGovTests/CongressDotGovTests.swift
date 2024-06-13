@@ -1,7 +1,7 @@
 import XCTest
 @testable import SampleContribution
 
-final class SampleContributionTests: XCTestCase {
+final class CongressDotGovTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
