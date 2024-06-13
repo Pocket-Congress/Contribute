@@ -9,7 +9,7 @@ public class CongressDotGov {
     static let decoder = JSONDecoder()
     
     /**
-     * Get bills filtered by optional parameters.
+     * Get bill(s) filtered by optional parameters.
      * Parameters congress, billType, and billNumber must be given in order, i.e. If billType is given without congress also being given, and error will be thrown
      */
     public static func getBillsAsync(congress: Int? = nil, billType: String? = nil, billNumber: Int? = nil,
@@ -59,7 +59,6 @@ public class CongressDotGov {
             let (data, response) = try await URLSession.shared.data(from: urlComponents.url!)
             let responseData = try CongressDotGov.decoder.decode(BillResponse.self, from: data)
             bills = responseData.bills
-            return bills
         } catch {
             CongressDotGov.logJSONError(error: error)
         }
@@ -86,6 +85,70 @@ public class CongressDotGov {
         Task {
             let bills = await CongressDotGov.getBillsAsync()
             print(bills)
+        }
+    }
+    
+    /**
+     * Get member(s) filtered by optional parameters.
+     */
+    public static func getMembersAsync(bioGuideId: Int? = nil,
+                                       fromDateTime: String? = nil, toDateTime: String? = nil, count: Int? = nil
+//                         ,onCompletion: @escaping ([Bill]) -> ()
+    ) async -> [Member] {
+        
+        var members: [Member] = []
+        var urlComponents = CongressDotGov.buildURL()
+        
+        // Build URL Path
+        urlComponents.path += "/member"
+        if bioGuideId != nil {
+            urlComponents.path += "/" + String(bioGuideId!)
+        }
+        
+        // Add URL Query Items
+        if fromDateTime != nil {
+            urlComponents.queryItems! += [URLQueryItem(name: "fromDateTime", value: fromDateTime)]
+        }
+        
+        if toDateTime != nil {
+            urlComponents.queryItems! += [URLQueryItem(name: "toDateTime", value: toDateTime)]
+        }
+        
+        // TODO If count is higher than 250, we need to do multiple requests
+        if count != nil && count! > 0 && count! < 251 {
+            urlComponents.queryItems! += [URLQueryItem(name: "limit", value: String(count!))]
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(from: urlComponents.url!)
+            let responseData = try CongressDotGov.decoder.decode(MemberResponse.self, from: data)
+            members = responseData.members
+        } catch {
+            CongressDotGov.logJSONError(error: error)
+        }
+        
+        // This was the @escaping version, changed to async/await
+//        let task = URLSession.shared.dataTask(with: urlComponents.url!) { data, response, error in
+//            if let data = data {
+//                do {
+//                    let responseData = try CongressDotGov.decoder.decode(BillResponse.self, from: data)
+//                    bills = responseData.bills
+//                } catch {
+//                    CongressDotGov.logJSONError(error: error)
+//                }
+//            }
+//        }
+//
+//        task.resume()
+        
+        return members
+    }
+    
+    public static func printMembers(bioGuideId: Int? = nil,
+                                  fromDateTime: String? = nil, toDateTime: String? = nil, count: Int? = nil) {
+        Task {
+            let members = await CongressDotGov.getMembersAsync()
+            print(members)
         }
     }
     
@@ -123,6 +186,7 @@ public class CongressDotGov {
         }
     }
 }
+    
 
 public struct BillResponse: Codable {
     let pagination: Pagination
@@ -158,6 +222,37 @@ public struct LatestAction: Codable {
     let text: String
 }
 
+public struct MemberResponse: Codable {
+    let members: [Member]
+    let pagination: Pagination
+    let request: Request
+}
+
+public struct Member: Codable {
+    let bioguideId: String
+    let state: String
+    let district: Int?
+    let partyName: String
+    let terms: Terms
+    let depiction: Depiction?
+    let updateDate: String
+    let name: String
+}
+
+public struct Terms: Codable {
+    let item: [Item]
+}
+
+public struct Item: Codable {
+    let startYear: Int?
+    let endYear: Int?
+    let chamber: String
+}
+
+public struct Depiction: Codable {
+    let imageUrl: String
+    let attribution: String?
+}
 
 //public func getBillInfo(billNumber: String) {
 //    get_all_bill_info(onCompletion: {
